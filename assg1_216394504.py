@@ -52,7 +52,7 @@ def getBetAmount(maximum):
 #incorrect (False). Think carefully about all the cases for the player to be right or wrong.
 #Return: return True or False (Boolean) depending on if the guess was right
 def playerGuessCorrect(card1, card2, betType):
-    truth = False
+    truth = True
     #Loosing scenarios 
     if (card1<card2):
         if(betType == 'Low'):
@@ -93,10 +93,10 @@ while round<11:
         print('You Lost')
         points-=bet
 
-    if (points=500):
-        print('You have reached ', points, ' points in ',rounds, ' rounds' )
+    if (points==500):
+        print('You have reached ', points, ' points in ',round, ' rounds' )
     elif (points==0):
         print('You have run out of points')
-    elif (rounds=10 & point<500):
-        print
+    elif (round==10 & points<500):
+        print('You lost. You have ',points, ' point and made it to ',round, ' rounds')
     round+=1
