@@ -55,17 +55,17 @@ def playerGuessCorrect(card1, card2, betType):
     truth = True
     #Loosing scenarios 
     if (card1<card2):
-        if(betType == 'Low'):
+        if(betType == 'Low' or betType == 'L'):
             truth = False
     elif (card1>card2): 
-        if(betType =='High'):
+        if(betType =='High'or betType == 'H'):
             truth =False
     #Winning Scenarios
     elif (card1>card2):
-        if(betType == 'Low'):
+        if(betType == 'Low'or betType == 'L'):
             truth = True
     elif (card1<card2):
-        if(betType =='High'):
+        if(betType =='High'or betType == 'H'):
             truth =True 
     elif (card1==card2):
         truth = False
