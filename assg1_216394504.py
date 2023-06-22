@@ -1,18 +1,19 @@
 #Joseph Ogunnupe 
 #tjogunnupe@outlook.com 
 #216-394-504
-
+import random
 round =0
 
-while (round<10){
-points = 100;
-cards = random.randint (1, 100)
-}
-
-
+while round<10:
+    points = 100
+    
+   
 
 # Will return a random number between 2-14. takes no param
-getCardValue()
+def getCardValue():
+   cards = random.randint (2, 14)
+   return cards
+
 
 #paramater is card value a number between 2-14. Will convert the integer to a string 
 #Integers 2 to 9 are converted to "2" .. "9". | 10 to "T", 11 to "J", 12 to "Q", 13 to "K", and 14 to "A" 
