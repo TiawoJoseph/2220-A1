@@ -52,8 +52,20 @@ def getBetAmount(maximum):
 #incorrect (False). Think carefully about all the cases for the player to be right or wrong.
 #Return: return True or False (Boolean) depending on if the guess was right
 def playerGuessCorrect(card1, card2, betType):
-    card1 = card1.getCardValue()
-    card2 =card2.getCardValue()
+    truth = false
+    #Loosing scenarios 
+    if (card1<card2 & betType == 'Low'):
+        truth = false
+    elif (card1>card2 & betType =='High')
+        truth =false
+    #Winning Scenarios
+    elif (card1<card2 & betType == 'Low'):
+        truth = true
+    elif (card1>card2 & betType =='High')
+        truth =true 
+    
+    return truth
+
 
 
 while round<11:
