@@ -41,10 +41,10 @@ def getHLGuess():
 # This will continually ask the player to input bet amount. Check to make sure the bet is between 1 and max. If it is less that 0 
 #or over the max ask the player to enter it in again.
 def getBetAmount(maximum):
-    maximum =points
     bet = int(input('Input bet amount:'))
-    if bet<1 or bet>maximum:
-        bet = input('Input bet amount:')
+    while bet<1 or bet>maximum:
+        bet = int(input('Input bet amount:'))
+    return bet
 
 # Params card 1 and card 2 represent the integer values of the two cards. Param bet type is a string that is either high or low. 
 # Depending on the bettype see if the palyer was correct.
@@ -52,31 +52,51 @@ def getBetAmount(maximum):
 #incorrect (False). Think carefully about all the cases for the player to be right or wrong.
 #Return: return True or False (Boolean) depending on if the guess was right
 def playerGuessCorrect(card1, card2, betType):
-    truth = false
+    truth = False
     #Loosing scenarios 
-    if (card1<card2 & betType == 'Low'):
-        truth = false
-    elif (card1>card2 & betType =='High')
-        truth =false
+    if (card1<card2):
+        if(betType == 'Low'):
+            truth = False
+    elif (card1>card2): 
+        if(betType =='High'):
+            truth =False
     #Winning Scenarios
-    elif (card1<card2 & betType == 'Low'):
-        truth = true
-    elif (card1>card2 & betType =='High')
-        truth =true 
-    
+    elif (card1>card2):
+        if(betType == 'Low'):
+            truth = True
+    elif (card1<card2):
+        if(betType =='High'):
+            truth =True 
+    elif (card1==card2):
+        truth = False
     return truth
 
-
+points = 100
 
 while round<11:
-    points = 100
     card=getCardValue()
+    snake=getCardValue()
     print('---------------------------------------')
-    print('OVERALL POINTS: ',points,'ROUND: ',round)
-    print ('First card is a ', '[',card, ']' )
+    print('OVERALL POINTS: ',points,' ROUND: ',round)
+    print ('First card is a ', '[',snake, ']')
     guess=getHLGuess()
     print (guess)
     bet=getBetAmount(points)
     print(bet)
     print('Second card is a ', '[',card, ']' )
+    print ('You bet ', guess, 'for ', bet)
+    if(playerGuessCorrect(snake, card, guess) == True):
+        print('YOU WON')
+        points+=bet
+        #if the bets are more than 500 exit the game 
+    else:
+        print('You Lost')
+        points-=bet
+
+    if (points=500):
+        print('You have reached ', points, ' points in ',rounds, ' rounds' )
+    elif (points==0):
+        print('You have run out of points')
+    elif (rounds=10 & point<500):
+        print
     round+=1
